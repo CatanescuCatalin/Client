@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 import { setMobileNavVisibility } from '../../reducers/Layout';
@@ -21,6 +21,7 @@ import Calendar from '../Calendar';
 import Tables from '../Tables';
 import Users from '../Users'
 import Cars from '../Cars'
+import AddCar from '../AddCar'
 
 const Main = ({
   mobileNavVisibility,
@@ -45,6 +46,8 @@ const Main = ({
           <Route exact path="/" component={Dashboard} />
           <Route path="/users" component={Users} />
           <Route path="/cars" component={Cars} />
+          <Route path="/add-car" component={AddCar} />
+
           <Route path="/components" component={Components} />
           <Route path="/profile" component={UserProfile} />
           <Route path="/forms" component={Forms} />

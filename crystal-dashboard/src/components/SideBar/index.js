@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Collapse } from 'react-bootstrap';
-import UserInfo from './UserInfo';
+//import { Collapse } from 'react-bootstrap';
+//import UserInfo from './UserInfo';
 import Nav from './Nav';
-import backgroundImage from 'assets/images/sidebar-5.jpg';
+//import backgroundImage from 'assets/images/sidebar-5.jpg';
 
 class SideBar extends Component {
 

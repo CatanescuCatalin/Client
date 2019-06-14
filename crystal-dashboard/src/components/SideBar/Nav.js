@@ -32,6 +32,13 @@ class Nav extends Component {
           </Link>
         </li>
 
+        <li className={location.pathname === '/add-car' ? 'active' : null}>
+          <Link to="/add-car">
+            <i className="pe-7s-plus"></i>
+            <p>Add Car</p>
+          </Link>
+        </li>
+
         <li className={this.isPathActive('/components') || this.state.componentMenuOpen ? 'active' : null}>
           <a onClick={() => this.setState({ componentMenuOpen: !this.state.componentMenuOpen })}
             data-toggle="collapse">
