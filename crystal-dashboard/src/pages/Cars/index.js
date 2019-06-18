@@ -15,12 +15,14 @@ export default class Cars extends Component {
     
       fetchDataFromServer = () => {
         const data = [];
-    
         axios.get("http://localhost:3001/api/cars").then(response => {
           response.data.forEach(car => {
             data.push(car);
           });
           this.setState({ data: data})
+        }, error => {
+          console.log("eroare")
+          console.error(error)
         });
     
         return data;
