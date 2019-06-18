@@ -32,20 +32,30 @@ export default class AddCar extends Component {
       .catch(function (error) {
         console.log(error);
       })*/
-      const data = new FormData();
+      
+      const dataForm = new FormData();
+      let car = {
+        Maker:this.state.Maker,
+        Model:this.state.Model,
+        FuelType:this.state.FuelType,
+        Volume:parseInt(this.state.Volume, 10),
+        Seats:parseInt(this.state.Seats, 10),
+        Transmision:this.state.Transmision,
+        Color:this.state.Color,
+      }
+
+      dataForm.append("car", JSON.stringify(car))
 
       this.state.images.forEach((file, i) => {
-        data.append(i, file)
+        dataForm.append(i, file)
       })
 
-      const config = {
-        headers: { 'content-type': 'multipart/form-data' }
-        }
-
-      axios.post('http://localhost:3001/upload', {
-        file: this.state.images
-      })
-      .then(function (response) {
+      axios({
+        method: 'post', 
+        url: 'http://localhost:3001/api/create/car',
+        data: dataForm,
+        config: {headers: {'Content-Type': 'multipart/form-data'}}    
+      }).then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
@@ -163,7 +173,7 @@ export default class AddCar extends Component {
                 <div className="form-group">
                   <label className="col-sm-2 control-label">Images</label>
                   <div className="col-sm-2">
-                    <input type="file" name="Color" onChange={this.setImages} />
+                    <input type="file" name="Color" multiple onChange={this.setImages} />
                   </div>
                 </div>
 
