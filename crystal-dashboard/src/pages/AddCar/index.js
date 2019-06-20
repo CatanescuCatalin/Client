@@ -17,21 +17,6 @@ export default class AddCar extends Component {
 
   handleSubmit = () => {
     console.log(this.state);
-    /*axios.post('http://localhost:3001/api/create/car', {
-        Maker:this.state.Maker,
-        Model:this.state.Model,
-        FuelType:this.state.FuelType,
-        Volume:parseInt(this.state.Volume, 10),
-        Seats:parseInt(this.state.Seats, 10),
-        Transmision:this.state.Transmision,
-        Color:this.state.Color,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })*/
       
       const dataForm = new FormData();
       let car = {

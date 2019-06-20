@@ -115,7 +115,7 @@ export default class Cars extends Component {
 
                       <TableHeaderColumn
                         dataField="Color"
-                        width="15%"
+                        width="5%"
                         filter={{ type: "TextFilter" }}
                         dataSort
                       >
@@ -129,6 +129,24 @@ export default class Cars extends Component {
                         dataSort
                       >
                         Seats
+                      </TableHeaderColumn>   
+
+                      <TableHeaderColumn
+                        dataField="ReservedUser"
+                        width="10%"
+                        filter={{ type: "TextFilter" }}
+                        dataSort
+                      >
+                        Reserved User
+                      </TableHeaderColumn>    
+
+                      <TableHeaderColumn
+                        dataField="Reserved"
+                        width="10%"
+                        filter={{ type: "TextFilter" }}
+                        dataSort
+                      >
+                        Reserved
                       </TableHeaderColumn>                      
                     </BootstrapTable>
                   </div>
