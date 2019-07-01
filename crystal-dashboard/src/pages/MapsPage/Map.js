@@ -6,7 +6,7 @@ const Map = ({
 }) => (
   <div>
     <GoogleMap
-      defaultZoom={3}
+      defaultZoom={11}
       defaultCenter={{ lat: location.latitude, lng: location.longitude }}
     />
   </div>

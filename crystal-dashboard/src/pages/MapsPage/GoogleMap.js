@@ -12,7 +12,7 @@ let GoogleMap = () => (
         <div className="content">
           <div style={{ width: '100%', height: '500px', boxSizing: 'border-box' }}>
             <Map
-              location={{ latitude: -25.363882, longitude: 131.044922 }}
+              location={{ latitude: 44.3230764, longitude: 23.7366244 }}
               containerElement={
                 <div style={{ width: '100%', height: '100%' }} />
               }
