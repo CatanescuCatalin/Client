@@ -9,19 +9,20 @@ export default class Cars extends Component {
     constructor() {
         super();
         this.state = {
-          data: []
+          data: [],
+          Model: null
         };
       }
     
       fetchDataFromServer = () => {
         const data = [];
-        axios.get("http://localhost:3001/api/cars").then(response => {
+        axios.get("http://localhost:3001/api/cars-all").then(response => {
           response.data.forEach(car => {
             data.push(car);
           });
           this.setState({ data: data})
         }, error => {
-          console.log("eroare")
+         
           console.error(error)
         });
     
@@ -33,6 +34,25 @@ export default class Cars extends Component {
         this.setState({ data: data})
       }
 
+      setModel= (event) => {
+        this.setState({Model: event.target.value})
+      }
+
+      handleSubmit = () => {
+        
+    
+        axios.get("http://localhost:3001/api/free-car/" + this.state.Model)
+        .then( (response) => {
+
+          console.log('aici', response);
+          this.setState({Model: ""})
+          
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        
+      };
 
       render() {
         const { data } = this.state;
@@ -64,7 +84,7 @@ export default class Cars extends Component {
                       <TableHeaderColumn
                         dataField="_id"
                         isKey
-                        width="10%"
+                        width="15%"
                         dataSort
                       >
                         ID
@@ -142,7 +162,7 @@ export default class Cars extends Component {
 
                       <TableHeaderColumn
                         dataField="Reserved"
-                        width="10%"
+                        width="5%"
                         filter={{ type: "TextFilter" }}
                         dataSort
                       >
@@ -153,6 +173,22 @@ export default class Cars extends Component {
                 </div>
               </div>
             </div>
+            <div>
+              <h2>Free car</h2>
+              <div className="form-group">
+                  <label className="col-sm-2 control-label">ID</label>
+                  <div className="col-sm-9">
+                    <input ld type="text" name="Model" onChange={this.setModel} />
+                  </div>
+                  <div className="footer text-center">
+                <button  className="btn btn-info btn-fill" onClick={this.handleSubmit}>
+                  Submit
+                </button>
+              </div>
+                </div>
+                
+            </div>
+            <h3>  </h3>
           </div>
         );
       }
