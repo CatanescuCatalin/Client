@@ -12,7 +12,9 @@ export default class AddCar extends Component {
         Model:"",
         Transmision:"",
         Maker:"",
-        images: []
+        images: [],
+        Ncoordonate: null,
+        Ecoordonate: null
     }
 
   handleSubmit = () => {
@@ -27,6 +29,8 @@ export default class AddCar extends Component {
         Seats:parseInt(this.state.Seats, 10),
         Transmision:this.state.Transmision,
         Color:this.state.Color,
+        Ncoordonate: this.state.Ncoordonate,
+        Ecoordonate: this.state.Ecoordonate
       }
 
       dataForm.append("car", JSON.stringify(car))
@@ -34,6 +38,8 @@ export default class AddCar extends Component {
       this.state.images.forEach((file, i) => {
         dataForm.append(i, file)
       })
+
+      console.log(dataForm)
 
       axios({
         method: 'post', 
@@ -76,6 +82,14 @@ export default class AddCar extends Component {
     this.setState({Color: event.target.value})
   }
 
+  setN = (event) => {
+    this.setState({Ncoordonate: event.target.value})
+  }
+
+  setE= (event) => {
+    this.setState({Ecoordonate: event.target.value})
+  }
+
   setImages = (event) => {
     const files = Array.from(event.target.files)
     var imageData = [];
@@ -116,7 +130,7 @@ export default class AddCar extends Component {
                 <div className="form-group">
                   <label className="col-sm-2 control-label">Model</label>
                   <div className="col-sm-9">
-                    <input ld type="text" name="Model" onChange={this.setModel} />
+                    <input type="text" name="Model" onChange={this.setModel} />
                   </div>
                 </div>
 
@@ -159,6 +173,20 @@ export default class AddCar extends Component {
                   <label className="col-sm-2 control-label">Images</label>
                   <div className="col-sm-2">
                     <input type="file" name="Color" multiple onChange={this.setImages} />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label className="col-sm-2 control-label">N coordonate</label>
+                  <div className="col-sm-2">
+                    <input type="text" name="Ncoordonate"  onChange={this.setN} />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label className="col-sm-2 control-label">E coordonate</label>
+                  <div className="col-sm-2">
+                    <input type="text" name="Ecoordonate"  onChange={this.setE} />
                   </div>
                 </div>
 
