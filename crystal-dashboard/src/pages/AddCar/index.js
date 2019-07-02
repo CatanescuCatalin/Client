@@ -14,7 +14,8 @@ export default class AddCar extends Component {
         Maker:"",
         images: [],
         Ncoordonate: null,
-        Ecoordonate: null
+        Ecoordonate: null,
+        Price: null
     }
 
   handleSubmit = () => {
@@ -30,7 +31,8 @@ export default class AddCar extends Component {
         Transmision:this.state.Transmision,
         Color:this.state.Color,
         Ncoordonate: this.state.Ncoordonate,
-        Ecoordonate: this.state.Ecoordonate
+        Ecoordonate: this.state.Ecoordonate,
+        Price: this.state.Price
       }
 
       dataForm.append("car", JSON.stringify(car))
@@ -88,6 +90,10 @@ export default class AddCar extends Component {
 
   setE= (event) => {
     this.setState({Ecoordonate: event.target.value})
+  }
+  
+  setPrice= (event) => {
+    this.setState({Price: event.target.value})
   }
 
   setImages = (event) => {
@@ -166,6 +172,13 @@ export default class AddCar extends Component {
                   <label className="col-sm-2 control-label">Color</label>
                   <div className="col-sm-2">
                     <input type="text" name="Color" onChange={this.setColor} />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label className="col-sm-2 control-label">Price</label>
+                  <div className="col-sm-2">
+                    <input type="number" name="Price" onChange={this.setPrice} />
                   </div>
                 </div>
 

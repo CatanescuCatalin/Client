@@ -43,10 +43,7 @@ export default class Cars extends Component {
     
         axios.get("http://localhost:3001/api/free-car/" + this.state.Model)
         .then( (response) => {
-
-          console.log('aici', response);
           this.setState({Model: ""})
-          
         })
         .catch(function (error) {
           console.log(error);
@@ -143,12 +140,11 @@ export default class Cars extends Component {
                       </TableHeaderColumn>
 
                       <TableHeaderColumn
-                        dataField="Seats"
+                        dataField="Price"
                         width="3%"
-                        filter={{ type: "TextFilter" }}
                         dataSort
                       >
-                        Seats
+                        Price
                       </TableHeaderColumn>   
 
                       <TableHeaderColumn
